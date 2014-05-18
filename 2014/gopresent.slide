@@ -9,6 +9,17 @@ mail@mail.com
 https://myurl
 @twitter
 
+* go.toolsのインストール
+
+  $ cd $GOPATH
+  $ go get code.google.com/p/go.tools
+  $ cd src/code.google.com/p/go.tools/cmd/present/
+  $ go install
+
+* ファイル名
+
+拡張子はslideまたはarticle
+
 * タイトルだけのページ
 
 * 単純な内容
@@ -163,6 +174,30 @@ HLxxxのようにHLのあとにラベルを指定した場合、
   .code ./gopresent/src/highlight.go /^func doSomething3/,/}/ HL1
 
 .code ./gopresent/src/highlight.go /^func doSomething3/,/}/ HL1
+
+* スライドの実行
+
+ローカルでスライドを実行します。
+
+  $ cd スライドのルートディレクトリ
+  $ present
+
+http://127.0.0.1:3999/をブラウザで開きます。
+
+* Go App Engineへのデプロイ1
+
+  $ cp $GOPATH/src/code.google.com/p/go.tools/cmd/present スライドのルートディレクトリ
+
+* Go App Engineへのデプロイ2
+
+yamlファイル作成
+
+.code ./gopresent/app.yaml.txt
+
+* Go App Engineへのデプロイ3
+
+  $ cd yamlファイルのあるディレクトリ
+  $ goapp deploy
 
 * 参考
 
