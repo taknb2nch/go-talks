@@ -12,7 +12,7 @@ https://myurl
 * go.toolsのインストール
 
   $ cd $GOPATH
-  $ go get code.google.com/p/go.tools
+  $ go get code.google.com/p/go.tools/cmd/present/
   $ cd src/code.google.com/p/go.tools/cmd/present/
   $ go install
 
@@ -92,20 +92,23 @@ _斜体にした文字_
 * 指定するURLの内容を表示
 
 指定するURLの内容を表示します。
-サイズを大きくし過ぎると前後ページが崩れるようです。
+外部サイトの内容や、表示サイズによっては前後ページが崩れる場合があります。
 
-  .iframe http://www.yahoo.co.jp/ 300 600
+  .iframe http://golang.org/ 350 800
 
-.iframe http://www.yahoo.co.jp/ 300 600
+.iframe http://golang.org/ 350 800
+
+ページの表示がおかしい場合はリロードしてください。
 
 * HTMLコンテンツの表示
 
 ファイル指定するHTMLコンテンツを差し込みます。
-差し込む内容が大きすぎると前後ページが崩れるようです。
+差し込む内容が大きすぎると前後ページが崩れるかも知れません。
+標準のコマンドでは表現できない内容等を自分で作って差し込むことができます。
 
-  .html ./gopresent/html/content.html
+  .html ./gopresent/html/youtube.html
 
-.html ./gopresent/html/content.html
+.html ./gopresent/html/youtube.html
 
 * ソースコードの表示と実行
 
@@ -182,22 +185,42 @@ HLxxxのようにHLのあとにラベルを指定した場合、
   $ cd スライドのルートディレクトリ
   $ present
 
-http://127.0.0.1:3999/をブラウザで開きます。
+http://127.0.0.1:3999/ をブラウザで開きます。
 
 * Go App Engineへのデプロイ1
 
-  $ cp $GOPATH/src/code.google.com/p/go.tools/cmd/present スライドのルートディレクトリ
+ディレクトリ階層のサンプル
+
+  /2014/
+    /gopresent/
+    gopresent.slide
+  /present
+  app.yaml
+
+スライドに関連するファイルは、slideファイルと同名のディレクトリを作って、その中に置いておくのがスマートなようです。
 
 * Go App Engineへのデプロイ2
 
-yamlファイル作成
-
-.code ./gopresent/app.yaml.txt
+  $ cp $GOPATH/src/code.google.com/p/go.tools/cmd/present スライドのルートディレクトリ
 
 * Go App Engineへのデプロイ3
 
+yamlファイル
+
+.code ./gopresent/app.yaml.txt
+
+* Go App Engineへのデプロイ4
+
   $ cd yamlファイルのあるディレクトリ
   $ goapp deploy
+
+* GithubやGoogle Codeで公開
+
+GithubやGoogle Codeにスライドファイルを置いておくと、
+
+  http://go-talks.appspot.com/github.com/taknb2nch/go-talks/2014/gosample.slide
+
+な形で参照できるようなのですが、上手く動作しないようです。
 
 * 参考
 
