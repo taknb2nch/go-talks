@@ -94,9 +94,9 @@ _斜体にした文字_
 指定するURLの内容を表示します。
 外部サイトの内容や、表示サイズによっては前後ページが崩れる場合があります。
 
-  .iframe http://golang.org/ 350 800
+  .iframe http://golang.org/ 300 800
 
-.iframe http://golang.org/ 350 800
+.iframe http://golang.org/ 300 800
 
 ページの表示がおかしい場合はリロードしてください。
 
